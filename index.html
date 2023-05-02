@@ -1,2 +1,15 @@
-  <embed src="Run.swf" width="550" height="400"> </embed>
+  <embed id="embededGame" src="Run.swf" width="550" height="400"> </embed>
 <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+ 
+<button onclick="goFullscreen('embededGame'); return false">Fullscreen</button>
+ 
+<script>
+function goFullscreen(id) {
+    var element = document.getElementById(id);
+    if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullScreen) {
+      element.webkitRequestFullScreen();
+    }
+}
+</script>
