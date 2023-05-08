@@ -1,6 +1,10 @@
-<form id="imageForum" action="javascript:submitForm();" method="post" enctype = "multipart/form-data">
-    <div>
-        <label for="fileUpload">File upload</label>
-        <input type="file" id="fileUpload" name="fileUpload" />
-    </div>
+<form id="my_form" name="form" action="upload.php" method="POST" 
+enctype="multipart/form-data" >
+
+<div id="main">
+<input name="my_files" id="my_file" size="27" type="file" />
+<input type="button" name="action" value="Upload" onclick="redirect()"/>
+<iframe id='my_iframe' name='my_iframe' src="">
+</iframe>
+</div>    
 </form>
