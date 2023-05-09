@@ -1,9 +1,25 @@
-     
-<div id='status'></div>
-<form id="file-upload-form" name="file-upload-form">
-   <input type="file" id="upload-doc-file" name="upload-doc-file">
-</form>
-
-<iframe id="postiframe" name="postiframe"></iframe>
-<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>File uploader</title>
+    <script language='javascript'>
+        function uploadFile(){
+            alert("uploadFiles()");
+            document.file_upload_form.submit();
+        }
+         
+        function init() {
+            alert("init()");
+            document.getElementById('file_upload_form').onsubmit=function() {
+                document.getElementById('file_upload_form').target = 'upload_target'; //'upload_target' is the name of the iframe
+            }
+        }
+        window.onload=init;
+    </script>
+</head>
+<body>
+    <form id="file_upload_form" name="file_upload_form" method="post" enctype="multipart/form-data" action="/MailServer/MailManager/sendWithAttachment">
+        <center><h2>File Uploader</h2></center><hr>
+        <input name="file" id="file" size="27" type="file" onChange="uploadFile();"/><br />
+        <iframe id="upload_target" name="upload_target" src="" style="width:110;height:110;border:0px solid #fff;"></iframe>
+    </form>
+</body>
