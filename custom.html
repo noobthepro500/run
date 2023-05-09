@@ -1,25 +1,14 @@
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>File uploader</title>
-    <script language='javascript'>
-        function uploadFile(){
-            alert("uploadFiles()");
-            document.file_upload_form.submit();
-        }
-         
-        function init() {
-            alert("init()");
-            document.getElementById('file_upload_form').onsubmit=function() {
-                document.getElementById('file_upload_form').target = 'upload_target'; //'upload_target' is the name of the iframe
-            }
-        }
-        window.onload=init;
-    </script>
-</head>
+<form action="upload.php" method="post" enctype="multipart/form-data" target="upload_target" >
+    File: <input name="myfile" type="file" />
+          <input type="submit" name="submitBtn" value="Upload" />
+</form>
 <body>
-    <form id="file_upload_form" name="file_upload_form" method="post" enctype="multipart/form-data" action="/MailServer/MailManager/sendWithAttachment">
-        <center><h2>File Uploader</h2></center><hr>
-        <input name="file" id="file" size="27" type="file" onChange="uploadFile();"/><br />
-        <iframe id="upload_target" name="upload_target" src="" style="width:110;height:110;border:0px solid #fff;"></iframe>
-    </form>
+<p id="f1_upload_process">Loading...<br/><img src="loader.gif" /></p>
+<p id="result"></p>
+<form action="upload.php" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="startUpload();" >
+    File: <input name="myfile" type="file" />
+          <input type="submit" name="submitBtn" value="Upload" />
+</form>
+ 
+<iframe id="upload_target" name="upload_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>                 
 </body>
