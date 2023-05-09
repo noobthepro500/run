@@ -15,3 +15,7 @@ function stopUpload(success){
       document.getElementById('f1_upload_process').style.visibility = 'hidden';
       return true;   
 }
+<script language="javascript" type="text/javascript">
+   window.top.window.stopUpload(<?php echo $result; ?>);
+</script>   
+ 
