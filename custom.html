@@ -1,18 +1,18 @@
-<form action="upload.php" method="post" enctype="multipart/form-data" target="upload_target" >
-    File: <input name="myfile" type="file" />
-          <input type="submit" name="submitBtn" value="Upload" />
-</form>
-<body>
-<p id="f1_upload_process">Loading...<br/><img src="loader.gif" /></p>
-<p id="result"></p>
-<form action="upload.php" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="startUpload();" >
-    File: <input name="myfile" type="file" />
-          <input type="submit" name="submitBtn" value="Upload" />
-</form>
- 
-<iframe id="upload_target" name="upload_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>                 
-</body>
-<script language="javascript" type="text/javascript">
-   window.top.window.stopUpload(<?php echo $result; ?>);
-</script>   
- 
+const frameElement = document.getElementById("iframeView");
+const fileElement = document.getElementById("fileSelect");
+fileElement.addEventListener("change", loadURL);
+
+function loadURL() {
+  const files = Array.from(fileElement.files);
+  const indexFile = files.find((file) => file.name === "index.html");
+  if (indexFile) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      frameElement.src = e.target.result;
+    };
+    reader.readAsDataURL(indexFile);
+  }
+}
+
+<input type="file" id="fileSelect" webkitdirectory />
+<iframe id="iframeView" height="400" width="600"></iframe>
