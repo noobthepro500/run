@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>YouTube To Audio</title>
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>
-  </head>
-  <body>
-    <input type="text" id = "youtubelink">
-    <button id = "download">Download</button>
-
-    <audio id="audio" autoplay controls style = "margin-top: 30px; display: none;"></audio>
-
-    <script>
-      $.getScript("https://ytconverter.github.io/converter.js", function(){
-        $("#download").click(function(){
-          $("#audio").css("display", "block");
-          var youtubelink = $('#youtubelink').val();
-          var audio_tag = $('#audio')[0];
-          converter(youtubelink, audio_tag);
-        });
-      });
-    </script>
-  </body>
-</html>
+<label for="youtubeUrl">YouTube URL:</label><br>
+<input type="text" id="youtubeUrl" name="youtubeUrl" value="https://www.youtube.com/watch?v=mYHPnqa7B3Y"><br>
+<button onclick="changeUrl()">Change URL</button><br>
+<iframe id="buttonApi" width="100%" height="100%" allowtransparency="true" scrolling="no" style="border:none"></iframe>
