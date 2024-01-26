@@ -12,7 +12,7 @@
 <iframe id="buttonApi" width="100%" height="100%" allowtransparency="true" scrolling="no" style="border:none"></iframe>
 
 <script>
-  // Get clipboard content and set it as the default URL
+  // Get clipboard content and set it as the default URL if it contains "youtube"
   function getClipboardContent() {
     const input = document.createElement('input');
     input.setAttribute('id', 'clipboardInput');
@@ -20,7 +20,9 @@
     input.select();
     document.execCommand('paste');
     const clipboardContent = document.getElementById('clipboardInput').value;
-    document.getElementById('youtubeUrl').value = clipboardContent;
+    if (clipboardContent.includes("youtube")) {
+      document.getElementById('youtubeUrl').value = clipboardContent;
+    }
     document.body.removeChild(input);
   }
   getClipboardContent();
