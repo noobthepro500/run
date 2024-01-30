@@ -1,42 +1,30 @@
+/* use a modern navy blue background color */
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #2c3e50;
-  padding: 20px;
-  margin: 0;
-}
-
-label {
   color: #ecf0f1;
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-family: 'Nunito-Regular', nunito;
 }
 
-input, select {
+/* use a sleek black color for form elements */
+label, input, select {
   background-color: #192a3a;
   border: none;
   color: #ecf0f1;
-  font-size: 18px;
   padding: 10px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 10px;
   width: 100%;
 }
 
-input:focus, select:focus {
-  outline: none;
-  box-shadow: 0 0 3px 0 #00bcd4;
-}
-
+/* make the button modern and sleek */
 button {
   background-color: #192a3a;
   border: none;
   color: #ecf0f1;
-  cursor: pointer;
-  font-size: 18px;
   padding: 10px 20px;
-  margin-top: 20px;
+  font-size: 18px;
   border-radius: 5px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -44,6 +32,7 @@ button:hover {
   background-color: #00bcd4;
 }
 
+/* make the iframe modern and minimalistic */
 iframe {
   background-color: #192a3a;
   border: none;
