@@ -19,7 +19,7 @@
   <div class="revision">revision 0.45</div>
 
   <script>
-    // Get clipboard content and set it as the default URL if it contains "youtube"
+    // Get clipboard content and set it as the default URL if it contains "youtube.com" or "youtu.be"
     function getClipboardContent() {
       const input = document.createElement('input');
       input.setAttribute('id', 'clipboardInput');
@@ -27,7 +27,7 @@
       input.select();
       document.execCommand('paste');
       const clipboardContent = document.getElementById('clipboardInput').value;
-      if (clipboardContent.includes("youtube")) {
+      if (clipboardContent.includes("youtube.com") || clipboardContent.includes("youtu.be")) {
         document.getElementById('youtubeUrl').value = clipboardContent;
       }
       document.body.removeChild(input);
