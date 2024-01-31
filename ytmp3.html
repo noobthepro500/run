@@ -1,40 +1,45 @@
-<label for="youtubeUrl">YouTube URL:</label>
-<input type="text" id="youtubeUrl" name="youtubeUrl" value="">
-
-<label for="fileType">File Type:</label>
-<select id="fileType">
-  <option value="mp3">MP3</option>
-  <option value="mp4">MP4</option>
-  <!-- Add more options as needed -->
-</select>
-
-<button onclick="getApiUrl()">Start!</button>
-<iframe id="buttonApi" width="100%" height="100%" allowtransparency="true" scrolling="no" style="border:none"></iframe>
-
-<script>
-  // Get clipboard content and set it as the default URL if it contains "youtube"
-  function getClipboardContent() {
-    const input = document.createElement('input');
-    input.setAttribute('id', 'clipboardInput');
-    document.body.appendChild(input);
-    input.select();
-    document.execCommand('paste');
-    const clipboardContent = document.getElementById('clipboardInput').value;
-    if (clipboardContent.includes("youtube")) {
-      document.getElementById('youtubeUrl').value = clipboardContent;
-    }
-    document.body.removeChild(input);
-  }
-  getClipboardContent();
-
-  function getApiUrl() {
-    var youtubeUrl = document.getElementById('youtubeUrl').value;
-    var fileType = document.getElementById('fileType').value;
-    var apiUrl = 'https://api.vevioz.com/apis/button/' + fileType + '?url=' + youtubeUrl;
-    document.getElementById('buttonApi').src = apiUrl;
-  }
-</script>
-
+<!DOCTYPE html>
+<html>
 <head>
-  <link rel="stylesheet" href="ytmp3.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+<body class="revision">
+  <label for="youtubeUrl">YouTube URL:</label>
+  <input type="text" id="youtubeUrl" name="youtubeUrl" value="">
+
+  <label for="fileType">File Type:</label>
+  <select id="fileType">
+    <option value="mp3">MP3</option>
+    <option value="mp4">MP4</option>
+    <!-- Add more options as needed -->
+  </select>
+
+  <button onclick="getApiUrl()">Start!</button>
+  <iframe id="buttonApi" width="100%" height="100%" allowtransparency="true" scrolling="no" style="border:none"></iframe>
+  <div class="revision">revision 0.45</div>
+
+  <script>
+    // Get clipboard content and set it as the default URL if it contains "youtube"
+    function getClipboardContent() {
+      const input = document.createElement('input');
+      input.setAttribute('id', 'clipboardInput');
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('paste');
+      const clipboardContent = document.getElementById('clipboardInput').value;
+      if (clipboardContent.includes("youtube")) {
+        document.getElementById('youtubeUrl').value = clipboardContent;
+      }
+      document.body.removeChild(input);
+    }
+    getClipboardContent();
+
+    function getApiUrl() {
+      var youtubeUrl = document.getElementById('youtubeUrl').value;
+      var fileType = document.getElementById('fileType').value;
+      var apiUrl = 'https://api.vevioz.com/apis/button/' + fileType + '?url=' + youtubeUrl;
+      document.getElementById('buttonApi').src = apiUrl;
+    }
+  </script>
+</body>
+</html>
